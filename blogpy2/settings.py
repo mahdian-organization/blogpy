@@ -133,8 +133,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #CKEditor settings
 #static files
-STATIC_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+#collect all static files in this directory
+#بعد از دستور collectstatics همه ی فایل های استاتیک پروژه درون این پوشه جمع آوری می شوند
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#when request url includes 'static' value that want any css,js or image file
+#وقتی یو آر ال شامل کلمه static است یعنی درخواست فایل های جاواسکریپت، تصویر یا... آمده است
 STATIC_URL = '/static/'
+
+#list of static directories in project
+#لیست فایل های استاتیک پروژه درون این متغییر نگهداری میشود. یعنی تمام فایل های استاتیک ما درون پوشه static قرار دارند
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 #CKEditor
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
