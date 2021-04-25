@@ -27,8 +27,8 @@ class UserProfile(models.Model):
     description = models.CharField("توضیحات", max_length=512, null=False, blank=False)
 
     #چون پنل ادمین سفارشی شده دیگر نیازی به override کردن متد زیر نیست
-    """def __str__(self):
-        return self.user.first_name + " " + self.user.last_name"""
+    def __str__(self):
+        return self.user.first_name + " " + self.user.last_name
 
 
 class Article(models.Model):
@@ -41,8 +41,8 @@ class Article(models.Model):
     author = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     # چون پنل ادمین سفارشی شده دیگر نیازی به override کردن متد زیر نیست
-    """def __str__(self):
-        return self.title"""
+    def __str__(self):
+        return self.title
 
 
 class Category(models.Model):
@@ -50,5 +50,5 @@ class Category(models.Model):
     cover = models.FileField(upload_to='files/category_cover/', null=False, blank=False,
                              validators=[validate_file_extension])
     # چون پنل ادمین سفارشی شده دیگر نیازی به override کردن متد زیر نیست
-    """def __str__(self):
-        return self.title"""
+    def __str__(self):
+        return self.title
