@@ -1,9 +1,12 @@
-#Database
-db.sqlite3
 
 #Vitual environment
 /venv/
 
+#system folders
 .idea
 
+#migrations
 blog/migrations/
+
+#static files
+/files/
