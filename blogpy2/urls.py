@@ -25,7 +25,20 @@ urlpatterns = [
 
     # define default or index page that declared in urls.py of blog application
     url(r'^', include('blog.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static('contact/static/', document_root=settings.STATIC_ROOT)
+
+    '''
+    http://127.0.0.1:8000/about44/static22/css/vendor.css
+    وقتی یو آر ال بالا زده میشود می آید و خط زیر را بررسی میکند و میفهمد که وقتی about44/static22 زده شد
+    باید برود و پوشه ی document_root را برگرداند
+    توجه شود که اگر مقدار document_root =settings.STATIC_ROOT باشد می رود و 
+    پوشه staticfiles را بر میگرداند. در واقع در این حالت نیاز است که حتما collectstatic انجام شده باشد
+    دقت شود که در فایل html هم باید مقدار static22 نوشته شود تا یو آر ال بالا به درستی ساخته شود
+    و بعد از ساخته شدن یو آر ال، خط زیر به درستی کار کند 
+    '''
+    urlpatterns += static('about44/static22/', document_root='static')

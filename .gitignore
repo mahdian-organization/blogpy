@@ -10,3 +10,4 @@ blog/migrations/
 
 #static files
 /files/
+/staticfiles/
